@@ -41,6 +41,7 @@ database-final-task/
 │   ├── task_3.sql
 │   ├── task_4.sql
 │   └── task_5.sql
+│   └── task_5_second_version.sql (если нужно соответствие ожидаемому выводу)
 │
 ├── 3_hotels_booking/
 │   ├── table_schema.sql
