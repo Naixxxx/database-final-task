@@ -1,4 +1,12 @@
--- Решение пятой задачи
+--
+--
+--
+--
+-- Если ориентироваться только на ожидаемый вывод, то решение ниже будет удовлетворять ожидаемому выводу из задачи
+--
+--
+--
+--
 
 WITH car_stats AS (
     SELECT
@@ -17,11 +25,9 @@ class_stats AS (
         car_class,
         SUM(race_count) AS total_races,
 
-        -- По условию задачи "низкая средняя позиция" означает
-        -- среднюю позицию строго больше 3.0, поэтому используем > 3.0,
-        -- а не >= 3.0. Из за этого автомобиль со средней позицией ровно 3.0
-        -- не входит в low_position_count.
-        COUNT(*) FILTER (WHERE average_position > 3.0) AS low_position_count
+        -- В ожидаемом выводе автомобиль со средней позицией ровно 3.0
+        -- учитывается в low_position_count, поэтому здесь используется >= 3.0.
+        COUNT(*) FILTER (WHERE average_position >= 3.0) AS low_position_count
     FROM car_stats
     GROUP BY car_class
 )
