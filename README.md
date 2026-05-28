@@ -64,9 +64,18 @@ database-final-task/
 ### 1. Зайти в PostgreSQL и создать базу данных
 
 ```bash
+# Клонирование проекта
+git clone https://github.com/Naixxxx/database-final-task.git
+cd database-final-task
+
+# Вход в psql
 psql -U postgres
 
+# Запрос на создание базы данных
 CREATE DATABASE database_final_task;
+
+# Инициализация подключения к базе данных
+\c database_final_task
 ```
 
 ---
@@ -82,6 +91,15 @@ psql -d database_final_task -f table_schema.sql
 psql -d database_final_task -f data_script.sql
 psql -d database_final_task -f task_1.sql
 psql -d database_final_task -f task_2.sql
+```
+
+Если вы уже находитесь внутри `psql`, можно запускать файлы так:
+
+```sql
+\i 1_vehicles/table_schema.sql
+\i 1_vehicles/data_script.sql
+\i 1_vehicles/task_1.sql
+\i 1_vehicles/task_2.sql
 ```
 
 ---
@@ -334,7 +352,7 @@ DROP TABLE IF EXISTS table_name CASCADE;
 ## Особенности проекта
 
 - Все решения представлены отдельными SQL-файлами.
-- Каждая предметная область лежит в отдельной папке.
+- Каждый блок лежит в отдельной папке.
 - Все запросы рассчитаны на PostgreSQL.
 - В задачах используются:
   - `JOIN`
